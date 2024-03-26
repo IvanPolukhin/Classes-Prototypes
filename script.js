@@ -1,37 +1,27 @@
-/*
-    Class --> Object
-
-    Instance Properties: what they have
-        - name
-        - age
-        - height
-
-    Instance Methods: what they do
-        - talk
-        - run
-        - jump
-*/
-
-class Rectangle {
-    // Setup
-    constructor(width, heigth, color) {
-        console.log('The Rectangle is being created!!!');
-
+class Square {
+    constructor(width) {
         this.width = width;
-        this.heigth = heigth;
-        this.color = color;
+        this.height = width;
+        this.numOfRequestsForArea = 0;
     }
 
-    getArea() {
-        return this.width * this.heigth;
+    get area() {
+        this.numOfRequestsForArea++;
+        return this.width * this.height;
     }
 
-    printDescription() {
-        console.log('I am a rectangle of ' + this.width + ' x ' + this.heigth + ' and I am ' + this.color);
+    set area(area) {
+        this.width = Math.sqrt(area)
+        this.height = this.width;
     }
 }
 
-let myRectangle1 = new Rectangle(7, 5, 'red');
-let myRectangle2 = new Rectangle(10, 10, 'blue');
+let square1 = new Square(4);
+square1.area = 16;
 
-myRectangle2.printDescription();
+console.log(square1.area);
+console.log(square1.area);
+console.log(square1.area);
+console.log(square1.area);
+
+console.log(square1);
