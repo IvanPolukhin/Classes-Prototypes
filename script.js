@@ -1,38 +1,24 @@
-// Parent and Child Class
-
-class Person {
-    constructor(_name, _age) {
-        this.name = _name;
-        this.age = _age;
+class Animal {
+    constructor(name) {
+        this.name = name
     }
-
-    describe() {
-        console.log('I am ' + this.name + ' and I am ' + this.age + ' years old')
+    makeSound() {
+        console.log('Generic Animal Sound!!');
     }
 }
 
-class Programmer extends Person {
-    constructor(_name, _age, _yearsOfExperience) {
-        super(_name, _age);
-
-        // Custom behaviour
-        this.yearsOfExperience = _yearsOfExperience;
+class Dog extends Animal {
+    constructor(name) {
+        super(name);
     }
-    code() {
-        console.log(`${this.name} is coding`);
+
+    makeSound() {
+        console.log('WOOF!! WOOF!!');
     }
 }
 
-const programmers = [
-    new Programmer('Dom', 56, 12),
-    new Programmer('Jeff', 24, 4)
-];
+const a1 = new Animal('Dom');
+const a2 = new Dog('Jeff')
 
-function developSoftware(programmers) {
-    // Develop software
-    for (let programmer of programmers) {
-        programmer.code();
-    }
-}
-
-developSoftware(programmers);
+a1.makeSound();
+a2.makeSound();
