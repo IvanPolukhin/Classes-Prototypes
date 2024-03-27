@@ -1,17 +1,38 @@
-class Square {
-    constructor(_width) {
-        this.width = _width;
-        this.height = _width;
+// Parent and Child Class
+
+class Person {
+    constructor(_name, _age) {
+        this.name = _name;
+        this.age = _age;
     }
 
-    static equals(a, b) {
-        return a.width * a.height === b.width * b.height;
-    }
-
-    static isValidDimensions(width, height) {
-        return width === height;
+    describe() {
+        console.log('I am ' + this.name + ' and I am ' + this.age + ' years old')
     }
 }
 
+class Programmer extends Person {
+    constructor(_name, _age, _yearsOfExperience) {
+        super(_name, _age);
 
-console.log(Square.isValidDimensions(7, 6));
+        // Custom behaviour
+        this.yearsOfExperience = _yearsOfExperience;
+    }
+    code() {
+        console.log(`${this.name} is coding`);
+    }
+}
+
+const programmers = [
+    new Programmer('Dom', 56, 12),
+    new Programmer('Jeff', 24, 4)
+];
+
+function developSoftware(programmers) {
+    // Develop software
+    for (let programmer of programmers) {
+        programmer.code();
+    }
+}
+
+developSoftware(programmers);
